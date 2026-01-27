@@ -1,0 +1,132 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+/* Big buttons */
+.text-button {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+
+    font-size: clamp(7rem, 15vw, 30rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: #111;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 
+        transform 0.25s ease,
+        letter-spacing 0.25s ease,
+        text-shadow 0.25s ease,
+        color 1s ease;
+        
+}
+
+/* Middle button = half size */
+.middle {
+    flex: 0.2;
+    font-size: clamp(2rem, 4vw, 4rem);
+}
+
+/* Hide middle text by default */
+.middle {
+    color: transparent;
+}
+
+.middle:hover {
+    color: #ff0101;
+    text-shadow: 0 0 25px rgb(243, 0, 0);
+    letter-spacing: 0.35em;
+}
+
+
+.text-button::after {
+
+
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.text-button:hover {
+    transform: translateY(-6px) scale(1.05);
+    letter-spacing: 0.3em;
+    text-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+
+.text-button:active {
+    transform: scale(0.98);
+}
+
+.pager {
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    text-align: center;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+
+    pointer-events: none; /* so it doesn't block clicks */
+}
+
+/* Moon toggle button */
+.moon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* sit above everything */
+
+    /* Added color and transition for light/dark mode */
+    color: #111; /* default light mode color (moon) */
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.moon:hover {
+    transform: scale(1.2);
+}
+
+body {
+    transition: background-color 1s ease, color 1s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #111;
+}
+
+/* Change moon/sun color in dark mode */
+body.dark-mode .moon {
+    color: #fff; /* sun appears white */
+}
+
+body.dark-mode .text-button {
+    color: #fafafa;
+    text-shadow: 0 10px 25px rgba(255,255,255,0.25);
+}
+
+body.dark-mode .middle:hover {
+    color: #ff8080;
+    text-shadow: 0 0 25px rgba(255,128,128,0.6);
+}
+
+body.dark-mode .pager {
+    color: #fafafa;
+}
