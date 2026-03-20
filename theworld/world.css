@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+  font-family: "Turret Road", sans-serif;
+  color: aliceblue;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tag Cloud Section */
+.tagcloud-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: center;
+}
+
+#tagCloud {
+  width: 500px;
+  height: 500px;
+  margin-top: -100px; 
+  position: relative;
+  transform: translateZ(0);
+}
+
+/* Fade-in animation for tags */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.tagcloud--item {
+  animation: fadeIn 4s ease-in-out;
+}
+
+.tagcloud--item:hover {
+  color: purple;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  animation: twinkle 2s infinite alternate, fadeIn 2s ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Journal Section */
+.journal-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.journal-section h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.journal-entry {
+  margin-bottom: 30px;
+}
+
+.journal-entry h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.journal-entry textarea {
+  width: 100%;
+  min-height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  font-family: "Turret Road", sans-serif;
+  font-size: 1em;
+  resize: vertical;
+}
+
+.journal-entry textarea::placeholder {
+  color: #ccc;
+}
+
+/* Menu (kept from your original CSS) */
+
+
+
+/* Sticky header */
+.site-header {
+  animation: fadeIn 2s ease-in-out;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* semi-transparent black */
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* optional: nice frosted look */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Header text */
+.header-text {
+  text-align: center;
+  font-family: "Turret Road", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  flex: 1; /* take remaining space */
+  line-height: 1.4em;
+}
+
+/* Menu button on top-left */
+.menu-button {
+  background: none;
+  border: none;
+  color: aliceblue;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* Font Weights */
+.turret-road-extralight { font-weight: 200; }
+.turret-road-light { font-weight: 300; }
+.turret-road-regular { font-weight: 400; }
+.turret-road-medium { font-weight: 500; }
+.turret-road-bold { font-weight: 700; }
+.turret-road-extrabold { font-weight: 800; }

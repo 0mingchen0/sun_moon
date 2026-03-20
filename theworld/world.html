@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everywhere</title>
+  <link rel="stylesheet" href="world.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/mars.png" />
+</head>
+
+<body>
+
+	<header class="site-header">
+    <button class="menu-button" onclick="window.location.href='../index.html'">回</button>
+    <div class="header-text">
+      Let the star cloud take you somewhere random, or scroll down to see my jornal log of how I explored the world.
+    </div>
+  </header>
+
+  <div class="tagcloud-section">
+    <div id="tagCloud"></div>
+  </div>
+
+  <div class="journal-section">
+    <h1>Journal Log</h1>
+    <div class="journal-entry">
+      <h2>March 20, 2026</h2>
+      <textarea placeholder="Write your thoughts here..."></textarea>
+    </div>
+    <div class="journal-entry">
+      <h2>March 19, 2026</h2>
+      <textarea placeholder="Write your thoughts here..."></textarea>
+    </div>
+  </div>
+
+  <!-- Scripts for TagCloud -->
+  <script type="text/javascript" src="TagCloud.min.js"></script>
+  <script>
+    const tags = [
+      "Chess", "Art", "Gituar", "Web Dev", "Game Dev", "Animations",
+      "3D Modeling", "Characters", "Data Science", "Everything Else",
+      "Words", "Photos", "Code"
+    ];
+
+    TagCloud('#tagCloud', tags, {
+      radius: 250,
+      maxSpeed: 'fast',
+      initSpeed: 'normal',
+      direction: 135,
+      keep: true
+    });
+
+    document.getElementById("tagCloud").addEventListener("click", function (e) {
+      if (e.target.classList.contains("tagcloud--item")) {
+        window.open(`https://www.google.com/search?q=${e.target.innerText}`, '_blank');
+      }
+      if (e.target.classList.contains("Chess")) {
+        window.open(`https://melfunction.netlify.app/blogs/chess.html`, '_blank');
+      }
+    });
+
+    // Stars background
+    function createStars(numStars) {
+      for (let i = 0; i < numStars; i++) {
+        let star = document.createElement("div");
+        star.classList.add("star");
+        let size = Math.random() * 3 + 1;
+        let x = Math.random() * (window.innerWidth - size);
+        let y = Math.random() * (window.innerHeight - size);
+        let duration = Math.random() * 2 + 1;
+        star.style.left = `${x}px`;
+        star.style.top = `${y}px`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDuration = `${duration}s`;
+        document.body.appendChild(star);
+      }
+    }
+    createStars(100);
+  </script>
+</body>
+
+</html>

@@ -2,16 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>欢迎光临</title>
+    <title>Welcome Home. 欢迎光临</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <button id="darkModeToggle" class="moon">⏾</button>
 
     <div class="container">
-        <button class="text-button left" onclick="window.location.href='wo/wo.html'">我</button>
-        <button class="text-button middle" onclick="window.location.href='love/love.html'">爱</button>
-        <button class="text-button right" onclick="window.location.href='theworld/world.html'">世<br>界</button>
+                    <button class="text-button left" onclick="window.location.href='wo/wo.html'">
+                <div class="content">
+                    <span class="label">I</span>
+                    我
+                </div>
+            </button>
+
+            <button class="text-button middle" onclick="window.location.href='love/love.html'">
+                <div class="content">
+                    <span class="label">Love</span>
+                    爱
+                </div>
+            </button>
+
+            <button class="text-button right" onclick="window.location.href='theworld/world.html'">
+                <div class="content">
+                    <span class="label">The <br> World</span>
+                    世<br>界
+                </div>
+            </button>
     </div>
 
     <footer class="pager">
